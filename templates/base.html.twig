@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Accueil{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        {% endblock %}
+
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            <nav>
+                {% block nav %}
+                <section id="navbar">
+                    <div id="logomenu">
+                        <div id="logo">
+                            <a href="{{path('home')}}">
+                                <img src="{{asset('img/logo.jpg')}}" alt="">
+                            </a>
+                        </div>
+                        <div id="menu-burger">
+                            <i id="burger-icon" class="fas fa-bars"></i>
+                        </div>
+                    </div>
+                    <div id="usercart">
+                        <div id="user-icon">
+                                <i class="fas fa-user"></i>
+                        </div>
+                        <div id="info-log">
+                            {% if app.user %}
+                                <div class="logout">
+                                    Bienvenue {{ app.user.name }}!
+                                    <hr>
+                                    <a href="#">Mes rendez-vous</a>
+                                    <hr>
+                                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                            {% endif %}
+                            {% if app.user is empty %}
+                                <div class="logout">
+                                    <a href="{{ path('app_login')}}">Se connecter</a>
+                                     ou
+                                    <a href="{{ path('app_register')}}">Créer son compte</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                </section>
+                <section id="menu">
+                    <ul id="list-nav">
+                        <li id="menu-home"><a href="{{path('home')}}">Accueil</a></li>
+                        <hr>
+                        <li id="menu-car"><a href="{{path('car')}}">Voitures</a></li>
+                        <hr>
+                        <li id="menu-access">
+                            <a id="access-item" href="#">Accessoires</a>
+                            <ul id="access-menu" class="sous-menu">
+                                <li><a href="">Categories</a></li>
+                                <li><a href="">Voir tout</a></li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li id="menu-product">
+                            <a id="product-item" href="#">Produits d'entretien</a>
+                            <ul id="product-menu" class="sous-menu">
+                                <li><a href="">Categories</a></li>
+                                <li><a href="">Voir tout</a></li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li id="menu-service">
+                            <a id="svc-item" href="#">Services</a>
+                            <ul id="service-menu" class="sous-menu">
+                                <li>Nos prestations</li>
+                                <li>Prise de rendez-vous</li>
+                            {% if app.user %}
+                                <li><hr></li>
+                                <li>Mes rendez-vous</li>
+                            {% endif %}
+                            </ul>
+                        </li>
+                        <hr>
+                    </ul>
+                </section>                
+                {% endblock %}
+            </nav>
+                
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://picsum.photos/1920/1080?random=1" class="d-block w-100" alt="Promotions">
+                        <div class="carousel-caption d-md-block">
+                            <h5>Promotions du moment</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/1920/1080?random=2" class="d-block w-100" alt="Arrivages">
+                        <div class="carousel-caption d-md-block">
+                            <h5>Derniers arrivages</h5>
+                            <p>Voitures, accessoires ...</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/1920/1080?random=3" class="d-block w-100" alt="Voitures">
+                        <div class="carousel-caption d-md-block">
+                            <h5>Nos voitures d'occasions</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="search-section">
+                <div class="search-form">
+                    {{form_start(searchForm)}}
+                        {{form_row(searchForm.keyword)}}
+                    {{form_end(searchForm)}}
+                </div>
+            </section>
+            <section class="new-section">
+                <div class="new-title">
+                    <h2><u>Nouveautés</u></h2>
+                </div>
+                <div class="new-slider">
+                    <div>
+                        <a href="#">
+                            <img src="https://picsum.photos/1920/1080?random=4" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="https://picsum.photos/1920/1080?random=5" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="https://picsum.photos/1920/1080?random=6" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="https://picsum.photos/1920/1080?random=7" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="https://picsum.photos/1920/1080?random=8" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+            </section>
+            <section id="category-section">
+                <div id="first-cat" class="category">
+                    <a href="{{path('car')}}">
+                        <img src="https://picsum.photos/1920/1080?random=1" class="card-img" alt="...">
+                    </a>
+                    <div class="cat-caption">
+                        <h3 class="cat-title">Voitures d'occasion</h3>
+                    </div>
+                </div>
+                <div id="second-cat" class="category">
+                    <a href="#">
+                        <img src="https://picsum.photos/1920/1080?random=4" class="card-img" alt="...">
+                    </a>
+                    <div class="cat-caption">
+                        <h3 class="cat-title">Accessoires</h3>
+                    </div>
+                </div>
+                <div id="third-cat" class="category">
+                    <a href="#">
+                        <img src="https://picsum.photos/1920/1080?random=5" class="card-img" alt="...">
+                    </a>
+                    <div class="cat-caption">
+                        <h3 class="cat-title">Produits d'entretien</h3>
+                    </div>
+                </div>
+                <div id="fourth-cat" class="category">
+                    <a href="#">
+                        <img src="https://picsum.photos/1920/1080?random=6" class="card-img" alt="...">
+                    </a>
+                    <div class="cat-caption">
+                        <h3 class="cat-title">Services</h3>
+                    </div>
+                </div>
+            </section>
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+            <section class="footer">
+                <hr>
+                <div class="copyright">
+                    <p>&copy; J.L. AUTOSERVICE 2021 </p>
+                </div>
+                <section class="footer-section">
+                    <div class="contact">
+                        <h6>Contact</h6>
+                        <p>Adresse</p>
+                        <p>Téléphone</p>
+                    </div>
+                    <div class="social-media">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </section>
+            </section>
+            {% endblock  %}
+        </footer>
+    </body>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="{{asset('js/main.js')}}"></script>
+        {% endblock %}
+
+</html>

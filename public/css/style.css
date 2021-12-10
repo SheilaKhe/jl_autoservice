@@ -1,0 +1,483 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0 auto;
+    background-color: black;
+}
+
+
+main {
+    min-height: 100%;
+}
+
+main::after {
+    content: "";
+    display: block;
+    
+}
+
+
+/* HEADER */
+
+/* NAVIGATION */
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(17, 17, 17);
+}
+
+#logo {
+    display: none;
+}
+
+#logomenu, #usercart {
+    display: flex;
+    justify-content: space-around;
+    margin: 3vw;
+    color: rgba(245, 245, 245, 0.733);
+}
+
+#logomenu, #usercart :hover {
+    color: white;
+}
+
+
+/* i = svg */
+#usercart svg {
+    margin: 0 5vw;
+}
+
+#menu {
+    display: none;
+    background-color: rgba(17, 17, 17, 0.822);
+    color: white;
+    width: 30vw;
+    padding: 2vh 0;
+    border-radius: 0 0 2vw 0;
+    font-size: smaller;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+}
+
+#menu a {
+    color: white;
+    text-decoration-line: none;
+}
+
+#menu ul { 
+    padding: 0 5vw;
+}
+
+#menu a:hover{
+    color: lightblue;
+}
+
+#menu li{
+    list-style: none;
+    margin: 1vh 0;
+}
+
+
+#menu hr {
+    width: 18vw;
+    text-align: center;
+}
+
+.sous-menu {
+    display: none;
+    width: 30vw;
+    font-size: smaller;
+    position: relative;
+    left: -14px;
+}
+
+/* NAV CONNEXION */
+#info-log {
+    display: none;
+    position: absolute;
+    top: 40px;
+    z-index: 1;
+    /* right: 70px; */
+    background-color: rgba(17, 17, 17, 0.822);
+    padding: 4vw;
+    border-radius: 0 0 5vw 5vw;
+}
+
+
+/* HOME */
+
+/* SEARCH BAR */
+
+.search-form form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -14px;
+    align-items: center;
+
+}
+
+.search-form input {
+    border-radius: 2vw;
+    padding: 1vw;
+}
+
+.search-form button {
+    border-radius: 3vw;
+    background-color: rgb(45, 45, 250);
+    color: rgba(255, 255, 255, 0.712);
+    padding: 0.5vh 2vw;
+}
+
+.search-form button, .search-form input {
+    margin: 0 1vw;
+    border: none;
+
+}
+
+.search-button:hover {
+    padding: 0.7vh 2.2vw ;
+}
+
+/* NEW SECTION*/
+
+.new-section {
+    margin-top: 5vh;
+}
+
+.new-title{
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 6vh;
+    color: rgba(245, 245, 245, 0.733);
+}
+
+.new-slider{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    margin: 0 10vw;
+    margin-bottom: 10vh;
+    padding-bottom: 1vh;
+}
+
+.new-slider::-webkit-scrollbar{
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+.new-slider::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+.new-slider::-webkit-scrollbar-thumb {
+    background-color: #54606b;
+    border-radius: 3px;
+}
+
+.new-slider img {    
+    width: 40vw;
+    margin: 0 3vw;
+}
+
+/* CATEGORIES SECTION */
+
+.category {
+    width: 55vw;
+}
+
+#category-section {
+    display: grid;
+    grid-template-areas: 
+    'a'
+    'b'
+    'c'
+    'd';
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(4,1fr);    
+    grid-gap: 2vw;
+    margin: 5vh 22vw;
+}
+
+.first-cat {
+    grid-area: a;
+}
+
+.second-cat {
+    grid-area : b;
+}
+
+.third-cat {
+    grid-area: c;
+}
+
+.fourth-cat {
+    grid-area: d;
+}
+
+.cat-caption {
+    position: relative;
+    top: -17vw;
+    margin: 1vw;
+    color: white;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 20vh;
+    padding: 3vh 0;
+}
+
+.footer hr {
+    background-color: white;
+    margin: 0 4vw;
+}
+.copyright {
+    text-align: center;
+    color: white;
+    font-size: small;
+    margin-top: 4vh;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding: 2vh 0;
+}
+
+.footer h6, .footer i{ 
+    color: blue;
+}
+
+.contact p {
+    font-size: smaller;
+}
+
+.contact h6 {
+    text-decoration: underline;
+}
+
+/* LOGIN */
+
+/* LOGIN FORM */
+
+.log-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh 8vw;
+    border-radius: 5vw;
+    padding: 5vw;
+}
+
+.log-mail, .log-pwd, .log-name {
+    margin: 2vh 0;
+    width: 55vw;
+    height: 5vh;
+    border: none;
+}
+
+.log-form h1 {
+    font-weight: normal;
+    color: white;
+    margin: 4vh 0;
+}
+
+.log-btn {
+    border-radius: 5vw;
+    color: white;
+    background-color: rgb(45, 45, 250);
+    padding: 2vw;
+    border: none;
+    margin: 2vh 0;
+}
+
+.log-link {
+    margin: 2vh 0;
+    font-size: smaller;
+}
+
+/* PRODUCTS */
+/* CAR PAGE */
+
+.product {
+    margin: 4vh 8vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+.pdt-select {
+    background-color: black;
+    border: solid 2px white;
+    width: 60vw;
+    margin: 2vh 2vw;
+}
+
+
+.pdt-select img {
+    width: 100%;
+    height: 100%;
+}
+
+.pdt-desc {
+    position: relative;
+    margin-top: -40vw;
+    background-color: rgba(0, 0, 0, 0.171);
+    padding: 7vw;
+    color: white;
+}
+
+.pdt-select, .pdt-desc, .product img {
+    border-radius: 8vw;
+}
+
+/* ACCESSORIES */
+
+#accessories .card {
+    width: 28vw;
+    background-color: black;
+    color: white;
+    margin: 2vw;
+}
+
+#accessories img {
+    border-radius: 0 ;
+    width: 100%;
+    height: 18vh;
+}
+
+#accessories h5 {
+    color: grey;
+}
+#accessories .card-body, #accessories h5{
+    font-size: smaller;
+}
+
+
+
+
+/* RESPONSIVE */
+
+
+@media only screen and (min-width: 768px) {
+    /* NAVBAR */
+    #info-log {
+        width: 25vw;
+        margin-right: 10vw;
+        top: 48px;
+    }
+
+    #menu {
+        width: 25vw;
+    }
+
+    /* CONNEXION */
+
+    /* LOGIN FORM */
+
+    .log-mail, .log-pwd, .log-name {
+        width: 30vw;
+    }
+    
+    .log-btn {
+        width: 22vw;
+        margin: 4vh 0;
+        padding: 1vh 0;
+    }
+
+    /* CARS PAGE */
+
+    .product {
+        justify-content: flex-start;
+    }
+
+    .pdt-select, .pdt-desc, #cars img {
+        border-radius: 6vw;
+        height: 20vh;
+    }
+
+    .pdt-select {
+        width: 38vw;
+    }
+
+    .pdt-desc {
+        margin-top: -27vw;
+    }
+    
+    /* ACCESSORIES */
+
+    #accessories .card {
+        width: 24vw;
+        margin: 2vw;
+    }
+    
+    #accessories img {
+        height: 18vh;
+    }
+    
+
+}
+
+@media only screen and (min-width: 1024px){
+    /* NAVBAR */
+    #info-log {
+        width: 19vw;
+        top: 57px;
+    }
+
+    /* CARS PAGE */
+
+    #cars .card {
+        width: 24vw;
+    }
+
+    #cars .card, #cars .card-body, #cars img {
+        border-radius: 4vw;
+        height: 24vh;
+    }
+
+    #cars .card-body {
+        margin-top: -24vw;
+    }
+
+    /* ACCESSORIES */
+
+    #accessories .card {
+        width: 18vw;
+    }
+    
+}
+
+@media only screen and (min-width: 1440px) {
+
+    /* CARS PAGE */
+
+    #cars {
+        margin: 10vh 11vw;
+    }
+
+    #cars .card {
+        width: 22vw;
+    }
+
+    #cars .card, #cars .card-body, #cars img {
+        border-radius: 2vw;
+        height: 26vh;
+    }
+
+    #cars .card-body {
+        margin-top: -19vw;
+    }
+
+}

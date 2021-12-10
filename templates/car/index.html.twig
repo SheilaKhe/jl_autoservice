@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures d'occasion{% endblock %}
+
+{% block main %}
+    <section id="cars" class="product">
+
+    {% for car in car %}
+        <div class="card pdt-select">
+            <img class="card-img-top" src="{{asset('img/' ~ car.photo)}}" alt="{{car.model}}">
+            <div class="card-body pdt-desc">
+                <h5 class="card-title">{{car.brand.name}}</h5>
+                <p class="card-text">{{car.model ~ ' ' ~ car.year}}</p>
+                <a class="card-link" href="#">En savoir plus</a>
+            </div>
+        </div>
+    {% endfor %}
+    </section>
+{% endblock %}

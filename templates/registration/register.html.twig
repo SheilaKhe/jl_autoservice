@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block main %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+
+    {{ form_start(registrationForm, {'attr':{'class': 'log-form'}}) }}
+        <h1>Créer son compte</h1>
+        {{form_row(registrationForm.name)}}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="log-btn">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
