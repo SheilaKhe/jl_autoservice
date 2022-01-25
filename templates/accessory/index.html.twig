@@ -3,20 +3,29 @@
 {% block title %}Accessoires{% endblock %}
 
 {% block main %}
+    <h2 class="pdt-title">ACCESSOIRES</h2>
+    <ul class="cat-list">
+    {% for accesscat in accesscat %}
+        <li><a href="{{path('acategory', {'id': accesscat.id})}}">{{accesscat.name}}</a></li>
+    {% endfor %}
+    </ul>
+    <hr class="pdt-hr">
     <section id="accessories" class="product">
         {% for accessories in accessories %}
-        <div class="card">
-            <img class="card-img" src="{{asset('img/' ~ accessories.picture)}}">
-            <div class="card-body">
+        <a class="link-access" href="{{path('detailsAccessory', {'id': accessories.id})}}">
+        <div class="card access-card">
+            <img class="card-img access-img" src="{{asset('img/' ~ accessories.picture)}}">
+            <div class="card-body access-body">
                 <h5 class="card-title">{{ accessories.name }}</h5>
                 {% if accessories.sale is null %}
-                <p class="card-text"> {{ accessories.price }}0 &euro; </p>
+                <p class="card-text" style="color: black"> {{ accessories.price }}0 &euro; </p>
                 {% else %}
                 <p class="card-text" style="color: grey"> {{ accessories.price }}0 &euro;</p>
                 <p class="card-text" style="color: red; font-weight: bolder"> {{ accessories.price * accessories.sale}} &euro; </p>
                 {% endif %}
             </div>
         </div>
+        </a>
         {% endfor %}
     </section>
 {% endblock %}

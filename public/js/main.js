@@ -68,10 +68,28 @@ userIcon.addEventListener("click", () => {
 
 /* /CAR */
 
-// let carSelect = document.querySelector('.car-select');
-// let carDesc = document.querySelector('.car-desc');
+let pdtSelect = document.getElementsByClassName('pdt-select');
+let pdtDesc = document.getElementsByClassName('pdt-desc');
 
-// carSelect.addEventListener("hover", () => {
-//     for(let )
-// })
+for (let i = 0; i < pdtSelect.length; i++) {
+    pdtSelect[i].addEventListener('mouseover', () => {
+        pdtDesc[i].style.display = 'block';
+    })
+    pdtSelect[i].addEventListener('mouseout', () => {
+        pdtDesc[i].style.display = 'none';
+    })
+}
+
+
+/* /CAR/ID */
+let detailsBtn = document.getElementById('details-btn');
+let detailsDesc = document.getElementById('details-desc');
+
+detailsBtn.addEventListener("click", () => {
+    if (getComputedStyle(detailsDesc).display != "none") {
+        detailsDesc.style.display = "none";
+    } else {
+        detailsDesc.style.display = "block";
+    }
+})
 

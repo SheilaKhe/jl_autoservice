@@ -3,15 +3,18 @@
 {% block title %}Voitures d'occasion{% endblock %}
 
 {% block main %}
-    <section id="cars" class="product">
+    <h2 class="pdt-title">VOITURES</h2>
+    <hr class="pdt-hr">
 
+    <section id="cars" class="product">
+    
     {% for car in car %}
         <div class="card pdt-select">
             <img class="card-img-top" src="{{asset('img/' ~ car.photo)}}" alt="{{car.model}}">
             <div class="card-body pdt-desc">
                 <h5 class="card-title">{{car.brand.name}}</h5>
                 <p class="card-text">{{car.model ~ ' ' ~ car.year}}</p>
-                <a class="card-link" href="#">En savoir plus</a>
+                <a class="card-link" href="{{path('detailsCar', {'id': car.id})}}">En savoir plus</a>
             </div>
         </div>
     {% endfor %}

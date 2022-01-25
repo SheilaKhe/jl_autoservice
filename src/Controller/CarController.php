@@ -21,4 +21,16 @@ class CarController extends AbstractController
             'car' => $cars,
         ]);
     }
+
+    /**
+     * @Route("/car/{id}", name="detailsCar")
+     */
+    public function details(CarRepository $carrep, $id)
+    {
+        $car = $carrep->find($id);
+
+        return $this->render('car/car.html.twig', [
+            'car' => $car,
+        ]);
+    }
 }

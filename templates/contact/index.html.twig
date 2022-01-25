@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block main %}
+
+    <section id="contact">
+        {{form_start(form, {'attr':{'class':'log-form'}})}}
+            <h1>Message</h1>
+            {{form_row(form.carId, {'attr': {'value':car.id}})}}
+            {{form_row(form.motive, {'attr':{'value':car.brand ~ ' ' ~ car.model }})}}
+            {% if app.user is empty %}
+            {{form_row(form.email)}}
+            {% else %}
+            {{form_row(form.email, {'attr':{'value': app.user.email}})}}
+            
+            {% endif %}
+            
+            {{form_row(form.message)}}
+            {{form_row(form.send)}}
+        {{form_start(form)}}
+    </section>
+{% endblock %}

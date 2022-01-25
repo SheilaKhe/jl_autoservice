@@ -9,7 +9,6 @@
     {% endif %}
 
     
-    {% if app.user is empty %}
     <h1>Connexion</h1>
     <input type="email" value="{{ last_username }}" placeholder="E-mail" name="email" id="inputEmail" class="log-mail" autocomplete="email" required autofocus>
     <input type="password" name="password" placeholder="Mot de passe" id="inputPassword" class="log-pwd" autocomplete="current-password" required>
@@ -35,6 +34,5 @@
     </button>
     
         <a class="log-link" href="{{path('app_register')}}">Pas encore de compte? Enregistrez-vous!</a>
-    {% endif %}
 </form>
 {% endblock %}

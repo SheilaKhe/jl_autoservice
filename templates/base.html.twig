@@ -32,15 +32,20 @@
                                 <i class="fas fa-user"></i>
                         </div>
                         <div id="info-log">
-                            {% if app.user %}
+                            {% if is_granted('ROLE_USER') %}
                                 <div class="logout">
                                     Bienvenue {{ app.user.name }}!
                                     <hr>
                                     <a href="#">Mes rendez-vous</a>
                                     <hr>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{path('admin')}}">Interface administrateur</a>
+                                    <hr>
+                                {% endif %}
                                     <a href="{{ path('app_logout') }}">Déconnexion</a>
                                 </div>
                             {% endif %}
+                            
                             {% if app.user is empty %}
                                 <div class="logout">
                                     <a href="{{ path('app_login')}}">Se connecter</a>
@@ -48,6 +53,7 @@
                                     <a href="{{ path('app_register')}}">Créer son compte</a>
                                 </div>
                             {% endif %}
+                            
                         </div>
                         <div id="cart-icon">
                             <i class="fas fa-shopping-cart"></i>
@@ -60,12 +66,10 @@
                         <hr>
                         <li id="menu-car"><a href="{{path('car')}}">Voitures</a></li>
                         <hr>
-                        <li id="menu-access">
-                            <a id="access-item" href="#">Accessoires</a>
-                            <ul id="access-menu" class="sous-menu">
-                                <li><a href="">Categories</a></li>
-                                <li><a href="">Voir tout</a></li>
-                            </ul>
+{#                         <li id="menu-car"><a href="{{path('contact')}}">Contact</a></li>
+                        <hr>
+ #}                       <li id="menu-access">
+                            <a id="access-item" href="{{path('accessory')}}">Accessoires</a>
                         </li>
                         <hr>
                         <li id="menu-product">
@@ -208,9 +212,7 @@
                 </div>
                 <section class="footer-section">
                     <div class="contact">
-                        <h6>Contact</h6>
-                        <p>Adresse</p>
-                        <p>Téléphone</p>
+                        <a href="#">Contactez-nous</a>
                     </div>
                     <div class="social-media">
                         <i class="fab fa-instagram"></i>

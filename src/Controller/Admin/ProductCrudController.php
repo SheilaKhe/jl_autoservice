@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use App\Entity\Productcategory;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -13,7 +14,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudAutocompleteType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -26,9 +30,7 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
             
-            ChoiceType::new('category', 'Catégorie', Productcategory::class [
-                'choices' => 
-            ])
+            AssociationField::new('category', 'Catégorie'),
             TextField::new('name', 'Nom'),
             MoneyField::new('price', 'Prix')->setCurrency('EUR'),
             IntegerField::new('stock', 'Stock'),
@@ -36,5 +38,16 @@ class ProductCrudController extends AbstractCrudController
 
         ];
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Produit')
+            ->setEntityLabelInPlural('Produits')
+            ->setPageTitle('index', '%entity_label_plural%')
+
+        ;
+    }
+
     
 }

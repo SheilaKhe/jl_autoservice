@@ -63,6 +63,11 @@ class Car
      */
     private $gearbox;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $desc;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -175,4 +180,18 @@ class Car
 
         return $this;
     }
+
+    public function getDesc(): ?string
+    {
+        return $this->desc;
+    }
+
+    public function setDesc(string $desc): self
+    {
+        $this->desc = $desc;
+
+        return $this;
+    }
+
+
 }

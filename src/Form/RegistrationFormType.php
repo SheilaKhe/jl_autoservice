@@ -42,7 +42,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 
                 ],
-                'label' => 'J\'accepte les termes',
+                'label' => 'J\'accepte les termes ',
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

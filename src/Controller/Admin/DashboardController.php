@@ -12,6 +12,9 @@ use App\Entity\Car;
 use App\Entity\Product;
 use App\Entity\User;
 use App\Entity\Service;
+use App\Entity\Message;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
 class DashboardController extends AbstractDashboardController
@@ -44,7 +47,15 @@ class DashboardController extends AbstractDashboardController
 
             MenuItem::section('Utilisateurs'),
             MenuItem::linkToCrud('Membres', 'fa fa-user', User::class),
+            MenuItem::linkToCrud('Message', 'fas fa-envelope', Message::class)
         ];
             
+    }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->setName($user->getName());
+
     }
 }

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre message a été envoyé!{% endblock %}
+
+{% block main %}
+
+    <section id="success">
+        <h1> Votre message a été envoyé avec succès ! </h1>
+        <p> Nous vous répondrons le plus vite possible.</p>
+    </section>
+    <section class="return-link">
+        <a href="{{path('car')}}">Retourner à la page des voitures</a>
+        <a href="{{path('home')}}">Retournez vers l'accueil</a>
+    </section>
+{% endblock %}

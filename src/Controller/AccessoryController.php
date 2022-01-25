@@ -25,4 +25,31 @@ class AccessoryController extends AbstractController
             'accesscat' => $accesscat,
         ]);
     }
+    /**
+     * @Route("/accessory/{id}", name="detailsAccessory")
+     */
+    public function detailsA(AccessoryRepository $accessrep, $id) 
+    {     
+        $access = $accessrep->find($id);
+
+        return $this->render('accessory/details.html.twig', [
+            'access' => $access,
+        ]);
+    }
+
+    /**
+     * @Route ("/acategory/{id}", name="acategory")
+     */
+    public function cat(AccessoryRepository $accessRep, AccessCategoryRepository $accessCatRep, $id) 
+    {
+        $catChoice = $accessCatRep->find($id);
+        $cat = $accessRep->findBy(['category' => $id]);
+        $accesscat = $accessCatRep->findAll();
+
+        return $this->render('accessory/category.html.twig', [
+            'cat' => $cat,
+            'accesscat' => $accesscat,
+            'catchoice' => $catChoice,
+        ]);
+    }
 }

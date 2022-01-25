@@ -5,7 +5,6 @@
 html, body {
     height: 100%;
     margin: 0 auto;
-    background-color: black;
 }
 
 
@@ -125,6 +124,7 @@ main::after {
 .search-form input {
     border-radius: 2vw;
     padding: 1vw;
+    box-shadow: 1px 1px 1px grey;
 }
 
 .search-form button {
@@ -154,7 +154,7 @@ main::after {
     text-align: center;
     padding-top: 2vh;
     padding-bottom: 6vh;
-    color: rgba(245, 245, 245, 0.733);
+    color: rgba(136, 135, 135, 0.733);
 }
 
 .new-slider{
@@ -172,7 +172,7 @@ main::after {
 }
 
 .new-slider::-webkit-scrollbar-track {
-    background-color: black;
+    background-color: white;
 }
 
 .new-slider::-webkit-scrollbar-thumb {
@@ -230,12 +230,13 @@ main::after {
 /* FOOTER */
 
 .footer {
+    background-color: black;
     margin-top: 20vh;
     padding: 3vh 0;
 }
 
 .footer hr {
-    background-color: white;
+    background-color: grey;
     margin: 0 4vw;
 }
 .copyright {
@@ -256,17 +257,26 @@ main::after {
     color: blue;
 }
 
-.contact p {
+.contact a {
     font-size: smaller;
+    text-decoration: none;
+    color: grey;
+
 }
 
-.contact h6 {
+.contact a :hover {
     text-decoration: underline;
+    color: blue;
 }
 
-/* LOGIN */
+#contact_motive {
+    margin: 0;
+    font-weight: bold;
+}
 
-/* LOGIN FORM */
+/* LOGIN && REGISTRATION */
+
+/* FORM */
 
 .log-form {
     display: flex;
@@ -275,19 +285,20 @@ main::after {
     margin: 10vh 8vw;
     border-radius: 5vw;
     padding: 5vw;
+    box-shadow: 0px 1px 8px 5px lightgrey;
 }
 
 .log-mail, .log-pwd, .log-name {
     margin: 2vh 0;
     width: 55vw;
     height: 5vh;
-    border: none;
 }
 
 .log-form h1 {
     font-weight: normal;
-    color: white;
+    color: blue;
     margin: 4vh 0;
+    text-decoration: underline;
 }
 
 .log-btn {
@@ -304,11 +315,15 @@ main::after {
     font-size: smaller;
 }
 
+.log-form label {
+    font-size: smaller;
+}
+
 /* PRODUCTS */
 /* CAR PAGE */
 
 .product {
-    margin: 4vh 8vw;
+    margin: 8vh 8vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -316,10 +331,7 @@ main::after {
 
 }
 
-
 .pdt-select {
-    background-color: black;
-    border: solid 2px white;
     width: 60vw;
     margin: 2vh 2vw;
 }
@@ -327,43 +339,175 @@ main::after {
 
 .pdt-select img {
     width: 100%;
-    height: 100%;
+    height: 22.5vh;
+    border-radius: 0;
+
 }
 
 .pdt-desc {
+    display: none;
     position: relative;
     margin-top: -40vw;
     background-color: rgba(0, 0, 0, 0.171);
-    padding: 7vw;
     color: white;
+    width: 60vw;
+    height: 22.5vh;
 }
 
-.pdt-select, .pdt-desc, .product img {
-    border-radius: 8vw;
-}
 
 /* ACCESSORIES */
 
-#accessories .card {
+.access-card {
     width: 28vw;
-    background-color: black;
     color: white;
-    margin: 2vw;
+    margin: 1vw;
 }
 
-#accessories img {
+.access-card:hover{
+    width: 29vw;
+}
+.access-img {
     border-radius: 0 ;
     width: 100%;
     height: 18vh;
 }
 
-#accessories h5 {
+.access-body h5 {
     color: grey;
 }
-#accessories .card-body, #accessories h5{
+.access-body, .access-body h5{
     font-size: smaller;
 }
 
+.pdt-title {
+    text-align: end;
+    margin: 5vh 5vw;
+}
+
+.pdt-hr {
+    box-shadow: 2px 2px 3px lightslategray;
+    width: 80vw;
+    margin: 0 10vw;
+}
+
+.link-access {
+    text-decoration: none;
+}
+
+.cat-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    justify-content: space-between;
+    margin: 2vh 5vw;
+
+}
+
+.cat-list li {
+    padding: 0 2vw;
+}
+
+/* .cat-list::-webkit-scrollbar{
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+.cat-list::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.cat-list::-webkit-scrollbar-thumb {
+    background-color: #54606b;
+    border-radius: 3px;
+}
+ */
+
+/* CONTACT */
+
+/* Form */
+
+#contact form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh 8vw;
+    border: solid 1px white;
+    border-radius: 2vw;
+    padding: 5vw;
+}
+
+#contact input {
+    width: 50vw;
+    margin: 3vh 0;
+}
+
+#contact button {
+    background-color: blue;
+    color: white;
+    border-radius: 5vw;
+    border: none;
+}
+
+#contact input, #contact select, #contact textarea {
+    width: 50vw;
+}
+
+/* SUCCESS */ 
+
+#success {
+    margin: 10vh 10vw;
+    box-shadow: 1px 2px 8px lightslategray;
+    padding: 5vw;
+}
+
+.return-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+/* DETAILS CAR */
+#choosen-car {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img-pdt img{
+    width: 100%;
+}
+
+.desc-pdt {
+    margin: 2vh 5vw;
+}
+
+#details-desc {
+    display: none;
+    border: solid 1px grey;
+    margin: 2vh 0;
+    padding: 2vw;
+}
+
+#details-btn, #contact-car {
+    background-color: mediumblue;
+    color: white;
+    border-radius: 2vw;
+    border: none;
+    width: 20vw;
+    box-shadow: 1px 1px 3px lightslategray;
+}
+
+#contact-car {
+    text-decoration-line: none;
+    padding: 0 1vw;
+}
+
+#details-btn:hover, #contact-car:hover {
+    width: 22vw;
+}
 
 
 
@@ -386,6 +530,11 @@ main::after {
 
     /* LOGIN FORM */
 
+    .log-form {
+        margin: 10vh 25vw;
+    }
+    
+
     .log-mail, .log-pwd, .log-name {
         width: 30vw;
     }
@@ -403,7 +552,6 @@ main::after {
     }
 
     .pdt-select, .pdt-desc, #cars img {
-        border-radius: 6vw;
         height: 20vh;
     }
 
@@ -413,24 +561,45 @@ main::after {
 
     .pdt-desc {
         margin-top: -27vw;
+        width: 38vw;
     }
     
     /* ACCESSORIES */
 
-    #accessories .card {
+    .access-card {
         width: 24vw;
         margin: 2vw;
     }
     
-    #accessories img {
+    .access-img {
         height: 18vh;
     }
-    
+
+    /* CONTACT */
+
+/* Form */
+
+#contact form{
+    margin: 10vh 12vw;
+}
 
 }
 
+
+
+
+
+
 @media only screen and (min-width: 1024px){
     /* NAVBAR */
+
+    #navbar {
+        height: 8vh;
+    }
+
+    #logomenu, #usercart {
+        margin: 1vw 3vw;
+    }
     #info-log {
         width: 19vw;
         top: 57px;
@@ -438,46 +607,67 @@ main::after {
 
     /* CARS PAGE */
 
-    #cars .card {
+    .pdt-select {
         width: 24vw;
     }
 
-    #cars .card, #cars .card-body, #cars img {
-        border-radius: 4vw;
-        height: 24vh;
+    .pdt-select, .pdt-desc, #cars img {
+        height: 18vh;
     }
 
-    #cars .card-body {
-        margin-top: -24vw;
+    .pdt-desc {
+        margin-top: -18vw;
+        width: 24vw;
     }
 
     /* ACCESSORIES */
 
-    #accessories .card {
-        width: 18vw;
+    .access-card {
+        width: 17vw;
     }
+
+    /* CONTACT */
+
+    /* Form */
+
+    #contact form{
+        margin: 20vh 18vw;
+    }
+
+
+    #contact input, #contact select, #contact textarea {
+        width: 45vw;
+    }
+
     
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1400px) {
 
     /* CARS PAGE */
 
     #cars {
-        margin: 10vh 11vw;
+        margin: 20vh 8vw;
     }
 
-    #cars .card {
+    .pdt-select {
         width: 22vw;
     }
 
-    #cars .card, #cars .card-body, #cars img {
-        border-radius: 2vw;
-        height: 26vh;
+    .pdt-select, .pdt-desc, #cars img {
+        height: 20vh;
+        width: 17vw;
     }
 
-    #cars .card-body {
-        margin-top: -19vw;
+    .pdt-desc {
+        margin-top: -14vw;
     }
+
+    /* ACCESSORIES */
+
+    .access-card {
+        width: 12vw;
+    }
+
 
 }

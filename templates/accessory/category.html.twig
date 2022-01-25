@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{catchoice.name}}{% endblock %}
+
+{% block main %}
+    <h2 class="pdt-title">{{catchoice.name}}</h2>
+{#     <form id="categories-form">
+        <select class="cat-select" onChange="document.getElementById('categories-form').submit()">
+            <option>-- Catégories --</option>
+            {% for accesscat in accesscat %}
+                    <option value="{{accesscat.id}}">{{accesscat.name}}</option>
+            {% endfor %}
+        </select>
+    </form>
+ #}    <ul class="cat-list">
+    {% for accesscat in accesscat %}
+        <li><a href="{{path('acategory', {'id': accesscat.id})}}">{{accesscat.name}}</a></li>
+    {% endfor %}
+    </ul>
+    <hr class="pdt-hr">
+    <section id="accessories" class="product">
+        {% for cat in cat %}
+        <a class="link-access" href="{{path('detailsAccessory', {'id': cat.id})}}">
+        <div class="card access-card">
+            <img class="card-img access-img" src="{{asset('img/' ~ cat.picture)}}">
+            <div class="card-body access-body">
+                <h5 class="card-title">{{ cat.name }}</h5>
+                {% if cat.sale is null %}
+                <p class="card-text" style="color: black"> {{ cat.price }}0 &euro; </p>
+                {% else %}
+                <p class="card-text" style="color: grey"> {{ cat.price }}0 &euro;</p>
+                <p class="card-text" style="color: red; font-weight: bolder"> {{ cat.price * cat.sale}} &euro; </p>
+                {% endif %}
+            </div>
+        </div>
+        </a>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails accessoire{% endblock  %}
+
+{% block main %}
+    <section id="choosen-access">
+        <div class="img-pdt">
+            <img src="{{asset('img/' ~ access.picture)}}">
+        </div>
+        <div class="desc-pdt">
+            <h2>{{access.name}}</h2>
+            <p> {{access.price}}0 &euro; </p>
+        </div>
+    </section>
+{% endblock %}
