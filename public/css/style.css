@@ -509,6 +509,15 @@ main::after {
     width: 22vw;
 }
 
+/* CART */
+
+#cart-title {
+    margin: 3vh 5vw;
+}
+
+.cart-table {
+    margin: 0 5vw;
+}
 
 
 /* RESPONSIVE */

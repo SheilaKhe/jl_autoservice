@@ -11,5 +11,6 @@
             <h2>{{access.name}}</h2>
             <p> {{access.price}}0 &euro; </p>
         </div>
+        <a href="{{path('cart_add', {'id': access.id})}}" class="btn btn-outline-primary">Réserver</a>
     </section>
 {% endblock %}

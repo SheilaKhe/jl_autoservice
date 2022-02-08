@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Panier{% endblock %}
+
+{% block main %}
+    
+    <div id="cart-title">
+        <h1>Panier</h1>
+    </div>
+    <section class="cart-table">
+        {% if items | length >0 %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.accessory.name }}</td>
+                        <td>{{ item.accessory.price }}</td>
+                        <td><a href="{{path('cart_remove', {'id': item.accessory.id })}}"><i class="fas fa-minus"></i></a> 
+                            {{ item.quantity }}
+                            <a href="{{path('cart_add', {'id': item.accessory.id })}}"><i class="fas fa-plus"></i></a>
+                        </td>
+                        <td>{{ item.accessory.price * item.quantity }} &euro;</td>
+                        <td>
+                            <a href="{{path('cart_delete', {'id': item.accessory.id})}}" class="btn btn-sm"> <i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                    <tfoot> 
+                        <tr>
+                            <td colspan="3" class="text-end">Total :</td>
+                            <td> {{total}} &euro;</td>
+                            <td><a href="{{path('cart_reservation', {'id': items.id})}}" class="btn btn-outline-primary btn-sm">Réserver</a></td>
+                        </tr>
+                    </tfoot>
+                </tbody>
+            </table>
+            <a href="{{path('accessory')}}">Retour à mes achats</a>
+        {% else %}
+            <p>Votre panier est vide...</p>
+        {% endif %}
+    </section>
+        
+{% endblock %}

@@ -2,20 +2,19 @@
 
 namespace App\Controller;
 
-use App\Entity\Accesscategory;
-use App\Entity\Accessory;
-use App\Repository\AccesscategoryRepository;
-use App\Repository\AccessoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 
-class AccessoryController extends AbstractController
+
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/accessory", name="accessory")
      */
-    public function index(AccessoryRepository $accessrep, AccesscategoryRepository $accesscategoryRepo): Response
+    public function index(ArticleRepository $accessrep, CategoryRepository $accesscategoryRepo): Response
     {
         $accessories = $accessrep->findAll();
         $accesscat = $accesscategoryRepo->findAll();
@@ -28,7 +27,7 @@ class AccessoryController extends AbstractController
     /**
      * @Route("/accessory/{id}", name="detailsAccessory")
      */
-    public function detailsA(AccessoryRepository $accessrep, $id) 
+    public function detailsA(ArticleRepository $accessrep, $id) 
     {     
         $access = $accessrep->find($id);
 
@@ -40,7 +39,7 @@ class AccessoryController extends AbstractController
     /**
      * @Route ("/acategory/{id}", name="acategory")
      */
-    public function cat(AccessoryRepository $accessRep, AccessCategoryRepository $accessCatRep, $id) 
+    public function cat(ArticleRepository $accessRep, CategoryRepository $accessCatRep, $id) 
     {
         $catChoice = $accessCatRep->find($id);
         $cat = $accessRep->findBy(['category' => $id]);
@@ -52,4 +51,5 @@ class AccessoryController extends AbstractController
             'catchoice' => $catChoice,
         ]);
     }
+
 }

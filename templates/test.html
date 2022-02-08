@@ -44,3 +44,37 @@
         </li>
     </ul>
 </section>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.accessory.name }}</td>
+                <td>{{ item.accessory.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.accessory.price * item.quantity }}</td>
+                <td>
+                    <a href="{{path('cart_remove', {'id': item.accessory.id})}}" class="btn btn-sm"> <i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tfoot> 
+            <tr>
+                <td colspan="3" class="text-right"></td>
+                <td> {{total}}</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </tbody>
+</table>
