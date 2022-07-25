@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'enregistrer{% endblock %}
+
+{% block body %}
+    <h1 style="color:white; text-align: center; padding-top: 10vh">S'enregistrer</h1>
+
+    <section id="registerLogin-form">
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email)}}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'J\'accepte les termes',
+        }) }}
+
+        <button type="submit" class="btn btn-primary">S'enregistrer</button>
+    {{ form_end(registrationForm) }}
+    
+    <p>Déjà un compte? <a href="{{path('login')}}">Connectez-vous</a></p>
+    </section>
+{% endblock %}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <!-- Link to the file hosted on your server, -->
+            <link rel="stylesheet" href="{{asset('css/splide.min.css')}}">
+      {% endblock %}
+    </head>
+    <body>
+        <header>
+        {% block header %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img id="logo-nav" src="{{asset('img/logo-tr.png')}}" alt="Logo JL-Autoservice" ></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="align-items:flex-end">
+                        <li class="nav-user">
+                            <a href="{{path('login')}}">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Voitures</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Articles
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Accessoires</a></li>
+                                <li><a class="dropdown-item" href="#">Produits d'entretien</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('app_service')}}">Services</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-dark navbar-expand-lg bg-black fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{path('home')}}"><img id="logo-nav" src="{{asset('img/logo-tr.png')}}" alt="Logo JL-Autoservice" ></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">JL-AUTOSERVICE</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{('car')}}">Voitures</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Articles
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                            <li><a class="dropdown-item" href="{{path('app_article_type', {'id' : product.id})}}">Produits d'entretien</a></li>
+                            <li><a class="dropdown-item" href="{{path('app_article_type', {'id' : accessory.id})}}">Accessoires</a></li>
+                            <li><a class="dropdown-item" href="{{path('app_article')}}">Voir tout</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+        {% endblock %}
+        </header>
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+        <footer>
+        {% block footer %}
+        <div id="footer-phone" class="container" style="margin:0 2vw">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="text-muted">&copy; 2022 Jl-Autoservice, Inc</span>
+                </div>
+
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><i class="fab fa-facebook"></i></svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><i class="fab fa-instagram"></i></svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><i class="fa fa-phone"></i></svg></a></li>
+                </ul>
+            </div>
+        </div>        
+
+        <div class="footer">
+            <div class="container bottom_border">
+                <div class="row">
+                    <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+                        <h5 class="headin5_amrc col_white_amrc pt2">Nous trouver</h5>
+                        <!--headin5_amrc-->
+                        <p class="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        <p><i class="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
+                        <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+                        <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
+                    </div>
+
+
+                    <div id="contact-us" class="col-sm-4">
+                        <h5 class="headin5_amrc col_white_amrc pt2">Nous contacter</h5>
+                            {{ form(form2) }}
+                    </div>
+
+
+                    <div class=" col-sm-4 col-md  col-12 col">
+                        <h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
+                        <!--headin5_amrc ends here-->
+                        <ul class="footer_ul2_amrc">
+                            <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+                            <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+                            <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+                        </ul>
+                    <!--footer_ul2_amrc ends here-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <ul class="foote_bottom_ul_amrc">
+                    <li><a href="http://webenlance.com">Accueil</a></li>
+                    <li><a href="http://webenlance.com">Voitures</a></li>
+                    <li><a href="http://webenlance.com">Services</a></li>
+                    <li><a href="http://webenlance.com">Produits</a></li>
+                    <li><a href="http://webenlance.com">Accessoires</a></li>
+                    <li><a href="http://webenlance.com">Contact</a></li>
+                </ul>
+                <!--foote_bottom_ul_amrc ends here-->
+                <p class="text-center">Copyright &copy;2022 | Designed by <a href="#">DooWeb</a></p>
+
+                <ul class="social_footer_ul">
+                    <li><a href="https://www.facebook.com/jlautoservice27/"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            <!--social_footer_ul ends here-->
+            </div>
+        </div>
+        {% endblock %}
+        </footer>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="{{asset('js/splide.min.js')}}"></script>
+            <script>
+                var elms = document.getElementsByClassName( 'splide' );
+                for ( var i = 0; i < elms.length; i++ ) {
+                    
+                    var splide = new Splide( elms[i], {
+                        type   : 'loop',
+                        perPage: 3,
+                        perMove: 1,
+                        gap: 13,
+                        } );
+
+                    splide.mount();
+                }
+            </script>
+        {% endblock %}
+    </body>
+</html>

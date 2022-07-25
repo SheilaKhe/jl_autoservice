@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{car.brand.name ~ car.model ~ car.year}}{% endblock  %}
+
+{% block body %}
+    <section id="choosen-car">
+        <div class="img-pdt">
+            <img src="{{asset('uploads/files/' ~ car.photo)}}">
+        </div>
+        <div class="desc-pdt">
+            <h2>{{car.brand.name}} {{car.model}}</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Année</th>
+                    <td>{{car.year}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Kilométrage</th>
+                    <td>{{car.km}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Moteur</th>
+                    <td colspan="2">{{car.motor}}</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Boîte</th>
+                    <td colspan="2">{{car.gearbox}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-outline-primary" type="button" id="details-btn">Détails</button>
+            <a class="btn btn-outline-primary" type="button" href="#contact-us" id="contact-car">Contact</a>
+            <div id="details-desc">
+                <p>{{car.desc}}</p>
+            </div>
+        </div>
+        <a href="{{path('car')}}" style="margin:0 2vw">Retour</a>
+    </section>
+{% endblock %}

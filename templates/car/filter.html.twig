@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{brand.name}}{% endblock %}
+
+{% block body %}
+    <nav>
+        <div class="dropdown">
+            <button class="btn btn-secondary" type="button" id="filters" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="filters">
+                <li><button id="brands" class="dropdown-item"></button>
+                    
+                </li>
+                <li class="dropdown-submenu">
+                    <a class="test dropdown-item" tabindex="-1" href="#">Marques</a>
+                    <ul class="dropdown-menu">
+                        {% for brands in brands %}
+                            <li><a tabindex="-1" href="{{path('car_filter_brand', {'id' : brands.id})}}">{{brands.name}}</a></li>                        
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>    
+    </nav>
+
+    <div id="cars">    
+    {% for cars in cars %}
+        <div class="cards">
+            <a href="#"><img src="{{asset('uploads/files/' ~ cars.photo)}}" alt="{{cars.brand.name ~ cars.model}}"></a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

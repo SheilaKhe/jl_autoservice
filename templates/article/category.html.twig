@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{cat.name}}{% endblock %}
+
+{% block body %}
+    <nav>
+        <div class="dropdown">
+            <button class="btn btn-secondary" type="button" id="filters" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="filters">
+                {% for category in category %}
+                    <li><a href="{{path('category', {'id': category.id})}}" class="dropdown-item">{{category.name}}</a></li>
+                {% endfor %}
+                <li>
+                </li>
+            </ul>
+        </div>    
+    </nav>
+
+    <div id="cars">    
+    {% for items in items %}
+        <div class="cards">
+            <a href="{{path('app_article_choice', {'id': items.id})}}"><img src="{{asset('uploads/files/' ~ items.picture)}}" alt="{{items.name}}"></a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+

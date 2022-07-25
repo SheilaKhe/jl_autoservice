@@ -1,0 +1,555 @@
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~@fortawesome/fontawesome-free/css/regular';
+@import '~@fortawesome/fontawesome-free/css/solid';
+@import '~@fortawesome/fontawesome-free/css/brands';
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+main {
+    min-height: 100%;
+}
+
+main::after {
+    content: "";
+    display: block;
+}
+
+body {
+    background-color: rgb(71, 71, 71);}
+
+main {
+    background: linear-gradient(black, rgb(71, 71, 71));
+
+}
+
+/* HOME */
+
+#home-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 78vw;
+    margin: 8vh 0;
+}
+
+#home-phone a {
+    width: 33vw;
+    margin: 2vh 0;
+    border-radius: 6vw;
+    color: black;
+    font-weight: bolder;
+}
+
+#home-web {
+    display: none;
+}
+/* HEADER */
+
+#nav-web {
+    display: none;
+}
+.nav-user {
+    color: blue;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3vh 6vw;
+}
+
+/* Header - CAR */
+#logo-nav {
+    width: 30vw;
+}
+
+
+.offcanvas-title {
+    color: blue;
+}
+
+.offcanvas, .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.485);
+}
+
+.nav-item, .dropdown-item {
+    color: lightgray;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 25vh;
+}
+
+.footer {
+    display: none;
+}
+/* NAV */
+#filters {
+    border: none;
+    background-color: transparent;
+    color: blue;
+    margin: 2vh 4vw;
+    position: fixed;
+}
+
+/* CARS */
+#cars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cards {
+    border-radius: 3vw;
+    width: 43vw;
+    margin: 4vh 0;
+    background-color: rgba(0, 0, 0, 0.408);
+}
+
+.cards img:hover {
+    opacity: 0.5;
+}
+.cards img {
+    width: 100%;
+    border-radius: 3vw;
+}
+
+
+.cars-infos i{
+    color: blue;
+}
+
+/* SERVICES */
+#svc-card {
+    width: 66vw;
+}
+
+/* FILTERS */
+.brands-filter {
+    display: none;
+}
+
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+
+
+/* CAR */ 
+  #choosen-car {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+#choosen-car .table {
+    color: white;
+}
+.img-pdt img{
+    width: 100%;
+}
+
+.desc-pdt {
+    margin: 2vh 5vw;
+}
+
+#details-desc {
+    display: none;
+    border: solid 1px grey;
+    margin: 2vh 0;
+    padding: 2vw;
+}
+
+#details-btn, #contact-car {
+    width: 20vw;
+}
+
+#details-btn:hover, #contact-car:hover {
+    width: 22vw;
+}
+
+/* ARTICLE */
+
+#choosen-access {
+    text-align: center;
+    color: white;
+}
+
+#choosen-access .desc-art {
+    margin: 5vh 10vw;
+
+}
+
+#choosen-access .img-art img {
+    width: 48vw;
+}
+
+.desc-art h2 {
+    text-decoration-line: underline;
+}
+
+/* Registration */
+#registerLogin-form {
+    text-align: center;
+    padding-top: 5vh;
+}
+#registerLogin-form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10vw;
+}
+
+#registerLogin-form label {
+    color: white;
+    padding: 2vh 2vw;
+}
+
+#registerLogin-form p {
+    color: rgb(199, 196, 196);
+    font-size: smaller;
+    font-style: italic;
+    padding-top: 5vh;
+}
+
+#registerLogin-form h2 {
+    color: white;
+    padding: 8vh 0;
+}
+@media screen and (min-width: 768px) {
+    
+    body {
+        background-color: black}
+    
+    main {
+        background: black;
+    
+    }
+    
+
+    /* Bouton UP / Retour haut de page */
+    #up {
+        display: inline-block;
+        position: fixed;
+        right: 1vw;
+        bottom: 15vh;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+        color: blue;
+        font-size: 2vw;
+        border: solid 1px blue;
+        border-radius: 2vw;
+        padding: 1vh 1vw;
+    }
+
+
+    #up:hover {
+        color: black;
+        background-color: blue;
+    }
+
+    #up.show{
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* NAV - ACCUEIL */
+
+    #logo-nav {
+        width: 20vw;
+    }
+
+    #nav-web {
+        display: block;
+    }
+
+    #home-web {
+        display: block;
+        padding: 10vh 5vw;
+        background-color: black;
+    }
+
+
+    /* Carousel home-web*/
+    #cars-main {
+        text-align: center;
+        color: white;
+        text-decoration-line: underline;
+        margin: 4vh 0;
+    }
+
+    #cars-main h2:hover{
+        color: rgb(211, 215, 245);
+    }
+    #carsCarousel {
+        margin: 6vh 5vw;
+        width: 80vw;
+    }
+
+    #carsCarousel img {
+        width: 100%;
+    }
+
+    #logo-web {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15vw;
+        border: solid 1px grey;
+        border-style: none none solid;
+    }
+
+    #contact-web {
+        display: flex;
+        justify-content: flex-end;
+        padding: 3vw 7vw;
+    }
+
+    #contact-web a {
+        text-decoration: none;
+    }
+
+    #contact-web .dropdown {
+        margin: 0 3vw;
+    }
+
+    #logo-web img {
+        width: 48vw;
+    }
+
+    #web-nav {
+        display: flex;
+        padding-top: 0;
+        margin-top: -3vh;
+        justify-content: center;
+    }
+
+    #search_article{
+        display: flex;
+    }
+
+    #search_article_mots {
+        border-radius: 3vw;
+        padding: 1vh 2vw;
+    }
+
+    #web-nav button {
+        margin: 0 5vw;
+        border-radius: 5vw;
+        padding: 1vh 4vw;
+    }
+
+    .splide{
+        margin: 20vh 6vw;
+    }
+    
+    .slide-header {
+        display: flex;
+        justify-content: space-between;
+        margin: 2vh 3vw;
+    }
+
+    .slide-header h2, .svc h2 {
+        color: white;
+        text-decoration-line: underline;
+    }
+
+    .svc {
+        margin: 18vh 0;
+    }
+
+    .svc h2{
+        margin: 0 3vw;
+        text-align: center;
+    }
+    #services-display {
+        display: flex;
+        justify-content: center;
+    }
+
+    #services-display img {
+        width: 100%;
+    }
+
+    #services-display a {
+        margin: 5vh 5vw;
+    }
+
+
+    /* FOOTER */
+     footer {
+       position: static;
+       margin: 0;
+    }
+
+
+    .col_white_amrc { color:#FFF;}
+    footer { 
+        width:100%; 
+        background-color:#263238; 
+        min-height:250px; 
+        padding:10px 0px 25px 0px ;
+        margin-top: 30vh;
+        z-index: 10;
+    }
+
+    .pt2 { 
+        padding-top:40px ; 
+        margin-bottom:20px ;
+    }
+    footer p { 
+        font-size:13px; 
+        color:#CCC; 
+        padding-bottom:0px; 
+        margin-bottom:8px;
+    }
+    .mb10 { 
+        padding-bottom:15px ;
+    }
+
+    .footer {
+        display: block;
+    }
+    .footer_ul_amrc { 
+        margin:0px ; 
+        list-style-type:none ; 
+        font-size:14px; 
+        padding:0px 0px 10px 0px ; 
+    }
+    .footer_ul_amrc li {
+        padding:0px 0px 5px 0px;
+    }
+    .footer_ul_amrc li a{ 
+        color:#CCC;
+    }
+    .footer_ul_amrc li a:hover{ 
+        color:#fff; 
+        text-decoration:none;
+    }
+    .fleft { 
+        float:left;
+    }
+    .padding-right { 
+        padding-right:10px; 
+    }
+
+    .footer_ul2_amrc {
+        margin:0px; 
+        list-style-type:none; 
+        padding:0px;
+    }
+    .footer_ul2_amrc li p { 
+        display:table; 
+    }
+    .footer_ul2_amrc li a:hover { 
+        text-decoration:none;
+    }
+    .footer_ul2_amrc li i { 
+        margin-top:5px;
+    }
+
+
+    .bottom_border { 
+        border-bottom:1px solid #323f45; 
+        padding-bottom:20px;
+    }
+    .foote_bottom_ul_amrc {
+        list-style-type:none;
+        padding:0px;
+        display:table;
+        margin-top: 10px;
+        margin-right: auto;
+        margin-bottom: 10px;
+        margin-left: auto;
+    }
+    .foote_bottom_ul_amrc li { 
+        display:inline;
+    }
+    .foote_bottom_ul_amrc li a { 
+        color:#999; margin:0 12px;
+    }
+
+    .social_footer_ul { 
+        display:table; 
+        margin:15px auto 0 auto; 
+        list-style-type:none;  
+    }
+    .social_footer_ul li { 
+        padding-left:20px; 
+        padding-top:10px; 
+        float:left; 
+    }
+    .social_footer_ul li a { 
+        color:#CCC; 
+        border:1px solid #CCC; 
+        padding:8px;
+        border-radius:50%;
+    }
+    .social_footer_ul li i {  
+        width:20px; 
+        height:20px; 
+        text-align:center;
+    }
+    
+    #contact input, #contact textarea {
+        margin: 2vh 0;
+    }
+
+    #contact button {
+        align-items: flex-end;
+    }
+
+    /* ACCUEIL */
+
+    #home-phone {
+        display: none;
+    }
+
+    .nav-user {
+        display: none;
+    }
+
+    #footer-phone {
+        display: none;
+    }
+
+
+    /* CARS/PRODUCTS/SERVICES */
+
+    nav {
+        padding-top: 6vh;
+    }
+
+    #cars {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 11vw;
+    }
+
+    #cars .cards {
+        width: 32vw;
+        margin: 5vh 3vw;
+    }
+}

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{article.name}}{% endblock  %}
+
+{% block body %}
+    <section id="choosen-access">
+        <div class="img-art">
+            <img src="{{asset('uploads/files/' ~ article.picture)}}">
+        </div>
+        <div class="desc-art">
+            <h2>{{article.name}}</h2>
+            <p style="text-align: justify">{{article.description}}</p>
+            <p style="border: solid 1px;"> {{article.price}} &euro; </p>
+        </div>
+        <a href="#" class="btn btn-outline-primary">Réserver</a>
+    </section>
+{% endblock %}

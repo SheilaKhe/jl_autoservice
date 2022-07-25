@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JL-AUTO{% endblock %}
+{% block header %}
+    <div class="nav-user" style="background: black">
+        <a href="{{path('login')}}"><i class="fas fa-user"></i></a>
+    </div>
+        <div id="nav-web">
+            <div id="contact-web">
+            <div class="dropdown">
+                <a href="{{path('login')}}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% if is_granted('ROLE_USER') %}
+                        <p style="color:white;text-decoration:underline">Bienvenue {{ app.user.username }}</p> 
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li><a class="dropdown-item" href="{{path('admin')}}">Interface Administrateur</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-item" href="{{path('app_logout')}}" style="color:blue;font-style:italic;">Déconnexion</a></li>
+                    {% endif %}
+                    {% if app.user is empty %}
+                        <li><a class="dropdown-item" href="{{path('login')}}">Se connecter</a></li>
+                            ou
+                        <li><a class="dropdown-item" href="{{path('app_register')}}">Créer son compte</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+                <a href="#contact-us">Contact</a></div>
+            <div id="logo-web">
+                <img src="{{asset('img/logo-tr.png')}}" alt="Logo">
+            </div>
+            <nav id="web-nav">
+                {{ form(form) }}
+            </nav>
+        </div>
+        
+        
+{% endblock %}
+
+{% block body %}
+    <section id="home-phone">
+        <img class="logo" src="{{asset('img/logo-tr.png')}}" alt="Jl-Autoservice">
+        <a href="{{path('car')}}" class="btn btn-primary">Voitures</a>
+        <a href="{{path('app_article')}}" class="btn btn-primary">Articles</a>
+        <a href="{{path('app_service')}}" class="btn btn-primary">Services</a>
+    </section>
+
+    <section id="home-web">
+    
+        <a href="#logo-web" id="up" aria-label="Retour en haut de page"><span class="fa-solid fa-angle-up"></span></a>
+
+        <div id="cars-main">
+            <a href="{{path('car')}}" style="color:white"><h2>NOS VOITURES</h2></a>
+            <div id="carsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                {% for cars in cars %}
+                    <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                        <img src="{{asset('uploads/files/' ~ cars.photo)}}" class="d-block w-100 h-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><a style="color:white" href="{{path('car_choice', {'id': cars.id})}}">{{ cars.brand.name ~ ' ' ~ cars.model ~ ' ' ~ cars.year }}</a></h5>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>        
+        </div>
+        <div class="svc">
+            <h2>SERVICES</h2>
+            <div id="services-display">
+                {% for svc in services %}
+                    <a href="" data-bs-toggle="modal" data-bs-target="#serviceModal{{svc.id}}"><img src="{{asset('uploads/files/' ~ svc.image)}}" alt="{{svc.name}}"></a>
+                {# SERVICES MODAL #}
+                <div class="modal fade" id="serviceModal{{svc.id}}" tabindex="-1" aria-labelledby="serviceModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{asset('uploads/files/' ~ svc.image)}}" alt="{{svc.name}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="splide" role="group" aria-labelledby="carousel-headings">
+            <div class="slide-header">
+                <h2 id="carousel-heading">ACCESSOIRES</h2>            
+                <a href="{{path('app_article_type', {'id': 1})}}">Voir plus</a>
+            </div>
+            <div class="splide__track">
+                    <div class="splide__list">
+                    {% for access in accessories %}
+                        <div class="splide__slide">
+                            <a href="{{path('app_article_choice', {'id': access.id})}}"><img class="w-100 h-100" src="{{asset('uploads/files/' ~ access.picture)}}" alt="{{access.name}}"></a>
+                        </div>
+                    {% endfor %}
+                    </div>
+            </div>
+        </div>
+
+        <div class="splide" role="group" aria-labelledby="carousel-headings">
+            <div class="slide-header">
+                <h2 id="carousel-heading">PRODUITS</h2>            
+                <a href="{{path('app_article_type', {'id': 2})}}">Voir plus</a>
+            </div>
+            <div class="splide__track">
+                    <div class="splide__list">
+                    {% for pdt in products %}
+                        <div class="splide__slide">
+                            <a href="{{path('app_article_choice', {'id': pdt.id})}}"><img class="w-100 h-100" src="{{asset('uploads/files/' ~ pdt.picture)}}" alt="{{pdt.name}}"></a>
+                        </div>
+                    {% endfor %}
+                    </div>
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}

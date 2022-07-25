@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos services{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        main {
+            padding-top: 12vh;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+
+    <div id="cars">    
+    {% for services in services %}
+        <div class="cards" id="svc-card">
+            <img src="{{asset('uploads/files/' ~ services.image)}}" alt="{{services.name}}">
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
